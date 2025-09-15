@@ -20,6 +20,7 @@
         "build-js_deteraministic": "rollup --config rollup_deteraministic.config.js --bundleConfigAsCjs",
         "fix-raw-file_deteraministic": "sh ./fix_raw_file_deteraministic.sh",
         "build2d": "npm run clean && npm run build-rust-2d-deterministic && npm run build-gen_src_deteraministic && npm run build-js_deteraministic && npm run fix-raw-file_deteraministic",
+        "copy": "rm -rf /Users/kinglich/work/git/rapier/lib/* && cp -rf ./builds/2d-deterministic/pkg/* /Users/kinglich/work/git/rapier/lib ",
         "clean": "rimraf gen2d gen3d builds",
         "test": "jest --detectOpenHandles",
         "all": "npm run build"
