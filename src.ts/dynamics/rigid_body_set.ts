@@ -198,9 +198,6 @@ export class RigidBodySet {
      * @param handle - The handle of the rigid-body to retrieve.
      */
     public get(handle: RigidBodyHandle): RigidBody | null {
-        if (handle === undefined) {
-            return null;
-        }
         return this.map.get(handle);
     }
 

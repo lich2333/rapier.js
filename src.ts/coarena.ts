@@ -38,6 +38,9 @@ export class Coarena<T> {
     }
 
     public get(handle: number): T | null {
+        if (handle === undefined) {
+            return null
+        }
         let i = this.index(handle);
         if (i < this.data.length) {
             return this.data[i];
