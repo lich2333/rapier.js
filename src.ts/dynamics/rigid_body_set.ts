@@ -1,16 +1,15 @@
-import {RawRigidBodySet, RawRigidBodyType} from "../raw";
-import {Coarena} from "../coarena";
-import {VectorOps, RotationOps} from "../math";
+import { Coarena } from "../coarena";
+import { ColliderSet } from "../geometry";
+import { RotationOps, VectorOps } from "../math";
+import { RawRigidBodySet, RawRigidBodyType } from "../raw";
+import { ImpulseJointSet } from "./impulse_joint_set";
+import { IslandManager } from "./island_manager";
+import { MultibodyJointSet } from "./multibody_joint_set";
 import {
     RigidBody,
     RigidBodyDesc,
-    RigidBodyHandle,
-    RigidBodyType,
+    RigidBodyHandle
 } from "./rigid_body";
-import {ColliderSet} from "../geometry";
-import {ImpulseJointSet} from "./impulse_joint_set";
-import {MultibodyJointSet} from "./multibody_joint_set";
-import {IslandManager} from "./island_manager";
 
 /**
  * A set of rigid bodies that can be handled by a physics pipeline.
@@ -199,6 +198,9 @@ export class RigidBodySet {
      * @param handle - The handle of the rigid-body to retrieve.
      */
     public get(handle: RigidBodyHandle): RigidBody | null {
+        if (handle === undefined) {
+            return null;
+        }
         return this.map.get(handle);
     }
 
